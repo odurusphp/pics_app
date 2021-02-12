@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta name="author" content="SemiColonWeb"/>
+
+    <!-- Stylesheets
+    ============================================= -->
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic"
+          rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css"/>
+    <link rel="stylesheet" href="style.css" type="text/css"/>
+    <link rel="stylesheet" href="css/dark.css" type="text/css"/>
+    <link rel="stylesheet" href="css/font-icons.css" type="text/css"/>
+    <link rel="stylesheet" href="css/animate.css" type="text/css"/>
+    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css"/>
+
+    <link rel="stylesheet" href="css/responsive.css" type="text/css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!--[if lt IE 9]>
+    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <![endif]-->
+
+    <!-- External JavaScripts
+    ============================================= -->
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/plugins.js"></script>
+
+    <style>
+        .team-content {
+            text-align: justify;
+        }
+    </style>
+
+    <!-- Document Title
+    ============================================= -->
+    <title>Home - Kron Finance</title>
+
+</head>
+
+<body class="stretched">
+
+<!-- Document Wrapper
+============================================= -->
+<div id="wrapper" class="clearfix">
+
+    <!-- Header
+    ============================================= -->
+    <header id="header" class="full-header">
+
+        <div id="header-wrap">
+
+            <div class="container clearfix">
+
+                <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
+
+                <!-- Logo
+                ============================================= -->
+                <div id="logo" style="width: 180px; height: 100px; padding-top: 20px">
+
+                    <a href="index.html" class="standard-logo" data-dark-logo="images/landing/logo1.png">
+                        <img src="images/landing/logo1.png" width="180" height="20" alt="Canvas Logo"></a>
+                    <a href="index.html" class="retina-logo" data-dark-logo="images/landing/logo1.png"><img
+                            src="images/landing/logo1.png" alt="Canvas Logo"></a>
+
+                </div>
+                <!-- #logo end -->
+
+                <!-- Primary Navigation
+                ============================================= -->
+                <nav id="primary-menu" style="">
+
+                    <ul>
+							<li class="current" style="color:#C40000"><a href="index.html"><div>Home</div></a></li>
+
+							<li><a href="about.html"><div>About Us</div></a></li>
+							<li class="mega-menu"><a href="products.html"><div>Products & Services</div></a></li>
+							<li class="mega-menu"><a href="client.html"><div>Our Clienteles</div></a></li>
+							<li class="mega-menu"><a href="projects.html"><div>Key Projects</div></a></li>
+							<li><a href="our_team.html"><div>Team</div></a>
+								
+							</li>
+							<li class="mega-menu"><a href="contact.html"><div>Contact Us</div></a>
+								
+							</li>
+						</ul>
+
+                    <!-- Top Search
+                    ============================================= -->
+                    <!-- #top-search end -->
+
+                </nav>
+                <!-- #primary-menu end -->
+
+            </div>
+
+        </div>
+
+    </header>
+    <!-- #header end -->
+
+    <section id="slider" class="slider-parallax swiper_wrapper clearfix" style='height: 200px'>
+
+        <div class="swiper-container swiper-parent">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide dark"
+                     style="  background:linear-gradient(0deg,rgba(0,0,0,0.50),rgba(0,0,0,0.50)),url('images/landing/product.jpg');">
+                    <div class="container clearfix">
+                        <div class="slider-caption slider-caption-center">
+                            <h2 data-caption-animate="fadeInUp" style='font-size:40px'>Our Associate Companies</h2>
+
+                            <p data-caption-animate="fadeInUp" data-caption-delay="200">
+
+                                INTERNATIONAL MANAGEMENT
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <script>
+            jQuery(document).ready(function ($) {
+                var swiperSlider = new Swiper('.swiper-parent', {
+                    paginationClickable: false,
+                    slidesPerView: 1,
+                    grabCursor: true,
+                    onSwiperCreated: function (swiper) {
+                        $('[data-caption-animate]').each(function () {
+                            var $toAnimateElement = $(this);
+                            var toAnimateDelay = $(this).attr('data-caption-delay');
+                            var toAnimateDelayTime = 0;
+                            if (toAnimateDelay) {
+                                toAnimateDelayTime = Number(toAnimateDelay) + 750;
+                            } else {
+                                toAnimateDelayTime = 750;
+                            }
+                            if (!$toAnimateElement.hasClass('animated')) {
+                                $toAnimateElement.addClass('not-animated');
+                                var elementAnimation = $toAnimateElement.attr('data-caption-animate');
+                                setTimeout(function () {
+                                    $toAnimateElement.removeClass('not-animated').addClass(elementAnimation + ' animated');
+                                }, toAnimateDelayTime);
+                            }
+                        });
+                    },
+                    onSlideChangeStart: function (swiper) {
+                        $('#slide-number-current').html(swiper.activeIndex + 1);
+                        $('[data-caption-animate]').each(function () {
+                            var $toAnimateElement = $(this);
+                            var elementAnimation = $toAnimateElement.attr('data-caption-animate');
+                            $toAnimateElement.removeClass('animated').removeClass(elementAnimation).addClass('not-animated');
+                        });
+                    },
+                    onSlideChangeEnd: function (swiper) {
+                        $('#slider .swiper-slide').each(function () {
+                            if ($(this).find('video').length > 0) {
+                                $(this).find('video').get(0).pause();
+                            }
+                        });
+                        $('#slider .swiper-slide:not(".swiper-slide-active")').each(function () {
+                            if ($(this).find('video').length > 0) {
+                                if ($(this).find('video').get(0).currentTime != 0) $(this).find('video').get(0).currentTime = 0;
+                            }
+                        });
+                        if ($('#slider .swiper-slide.swiper-slide-active').find('video').length > 0) {
+                            $('#slider .swiper-slide.swiper-slide-active').find('video').get(0).play();
+                        }
+
+                        $('#slider .swiper-slide.swiper-slide-active [data-caption-animate]').each(function () {
+                            var $toAnimateElement = $(this);
+                            var toAnimateDelay = $(this).attr('data-caption-delay');
+                            var toAnimateDelayTime = 0;
+                            if (toAnimateDelay) {
+                                toAnimateDelayTime = Number(toAnimateDelay) + 300;
+                            } else {
+                                toAnimateDelayTime = 300;
+                            }
+                            if (!$toAnimateElement.hasClass('animated')) {
+                                $toAnimateElement.addClass('not-animated');
+                                var elementAnimation = $toAnimateElement.attr('data-caption-animate');
+                                setTimeout(function () {
+                                    $toAnimateElement.removeClass('not-animated').addClass(elementAnimation + ' animated');
+                                }, toAnimateDelayTime);
+                            }
+                        });
+                    }
+                });
+
+                $('#slider-arrow-left').on('click', function (e) {
+                    e.preventDefault();
+                    swiperSlider.swipePrev();
+                });
+
+                $('#slider-arrow-right').on('click', function (e) {
+                    e.preventDefault();
+                    swiperSlider.swipeNext();
+                });
+
+                $('#slide-number-current').html(swiperSlider.activeIndex + 1);
+                $('#slide-number-total').html(swiperSlider.slides.length);
+            });
+        </script>
+
+    </section>
+
+    <section id="content">
+
+        <div class="content-wrap">
+
+            <div class="container clearfix">
+
+                <div class="clear"></div>
+
+                <div class="fancy-title title-border">
+                    <h3>Our Associate Companies</h3>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-md-6 bottommargin">
+
+                        <div class="team team-list clearfix">
+
+                            <div class="team-desc">
+                                <div class="team-title"><h4>INTERNATIONAL MANAGEMENT CONSULTANTS) </h4>
+                                    <span>ENK Consultancy, UK</span></div>
+                                <div class="team-content">
+                                    <p>ENK Consultancy provides advisory services for small and medium sized business to
+                                        aid development in the commercialization of primary products, sustainable
+                                        development, rural enterprise and women empowerment, through government,
+                                        bi-lateral and multilateral agencies, charities and private businesses.
+                                        ENK has been operating since the 1990’s in Sub Saharan Africa, with offices
+                                        located in the UK and Zambia. It has good networking skills and practical
+                                        experience to assist organizations already operating, or wishing to operate, in
+                                        these countries: Indonesia, Zambia and UK. ENK has established an excellent
+                                        track record over the years, particularly working in Indonesia and Zambia as a
+                                        service-provider for renowned institutions such as the “Fair Trade”
+                                        organization, Governments and other institutions in UK. It helps governments in
+                                        developing and emerging economies to achieve food self-sufficiency; to build
+                                        capacity in the rural areas by advising communities (especially women
+                                        co-operatives, to produce and market their resources in a sustainable manner).
+                                        ENK also provides training to enable those communities to become
+                                        self-supportive. ENK’s wealth of practical experience in areas of Business
+                                        Management, Marketing and Agriculture matters has helped to solve clients’
+                                        problems through recognizing all the aspects of business challenges and its
+                                        environments. The partners’ previous experience in running both successful
+                                        commercial small and large organizations coupled with employment at senior level
+                                        in Government and private sector has given ENK its unique operational abilities.
+
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-6 bottommargin">
+
+                        <div class="team team-list clearfix">
+
+                            <div class="team-desc">
+                                <div class="team-title"><h4>LEGAL AND NOTARY CONSULTANTS </h4><span>George Ankoma-Mensah & Associates, Accra-Ghana
+</span></div>
+                                <div class="team-content">
+                                    <p>
+                                        George Ankoma-Mensah & Associates, a firm of legal Advisers and Notaries Public,
+                                        set up to bring together its seasoned Legal Practitioners to render
+                                        international standard of legal practice to its clientele, both local (that is
+                                        in Ghana), and external clients, who require advice on Ghanaian legislation or
+                                        desire to set up in Ghana or Ghanaian clients who require legal services when
+                                        negotiating with external entities.<br/>
+                                        The firm has combined commercial law, corporate and privatization law practice
+                                        with the practice of law related to charities or non-Governmental Organizations,
+                                        again both local and international. The firm boasts of a total experience of
+                                        well over forty (40) years being the combined cumulative years of experience of
+                                        members.<br/>
+                                        The company prides itself, of being a legal giant practicing law involving not
+                                        only the observance of the law but its spirit and also taking cognizance of the
+                                        fact that human survival, unity and peace are paramount, hence we encourage
+                                        reconciliation, meditation, arbitration and or other forms of Alternate Dispute
+                                        Resolution methods and not the strict resort to the courts of law in the first
+                                        instance, unless absolutely necessary and with the clients approval.
+
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="row">
+
+                    <div class="col-md-6 bottommargin">
+
+                        <div class="team team-list clearfix">
+
+                            <div class="team-desc">
+                                <div class="team-title"><h4>MANAGEMENT ACCOUNTANTS AND AUDITORS </h4>
+                                    <span>BLA & Associates, Accra-Ghana  </span></div>
+                                <div class="team-content">
+                                    <p>BLA & ASSOCIATES (BLA) is an entrepreneurially spirited firm of Chartered
+                                        Accountants incorporated in 2008 as a partnership commenced business in 2009.
+                                        BLA is a wholly owned Ghanaian accounting firm with a number of regional contact
+                                        offices to meet the international, national and localized needs of our clients.
+                                        BLA is staffed with a team of individuals who have distinguished themselves in
+                                        their professions blends traditional accounting practices with the special needs
+                                        of Ghana’s independent businesses, community based organizations and MDA’s among
+                                        a range of clients and with a hallmark of clearly customized delivery.
+                                        BLA services Independent / Private Business, Public Administration and
+                                        Non-profit Organizations. A host of clients ranging from individual
+                                        entrepreneurs to government organizations and mid-range Ghanaian companies have
+                                        selected BLA to be their trusted business advisor.<br/>
+                                        BLA has the following objectives:- i) to offer Accounting and Auditing
+                                        Consultancy service; ii) to undertake Financial and Management Consultancy
+                                        Services; iii) to offer Finance, Taxation and Investment Advisory Services; iv)
+                                        to offer Financial Management Training.<br/>
+                                        BLA is committed to operating as a leading independent professional service
+                                        provider with the highest standards of professional ethics to our clients at the
+                                        most competitive offers. As one of Ghana’s emerging accounting and auditing
+                                        firms, BLAA has the size and strength to help our clients compete in the
+                                        national and global market place by providing clients with leading-edge
+                                        accounting, tax and management advisory services.
+
+
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-6 bottommargin">
+
+                        <div class="team team-list clearfix">
+
+                            <div class="team-desc">
+                                <div class="team-title"><h4>MANAGEMENT INFORMATION SYSYTEMS (MIS) AND ICT EXPERTS </h4>
+                                    <span>Engineering Systems and Services Limited (ESS), Accra-Ghana  </span></div>
+                                <div class="team-content">
+                                    <p>Engineering Systems and Services Limited is a 100% Ghanaian owned Limited
+                                        Liability Company incorporated under the Companies Code, 1963 (Act 179) on 29th
+                                        January 1999 to provide Information and Communications Technology (ICT)
+                                        solutions, services and products, and other directly related services in Ghana
+                                        and is located on the 10th Floor of Premier Towers, Pension street, Ministries,
+                                        Accra.<br/>
+                                        ESS is an Information and Communications Technology (ICT) service provider and
+                                        provider of Internet and other network services in Ghana under the trade name of
+                                        UCOM. The company requires this investment to upgrade its communications
+                                        infrastructure to compete with the dominant operators (MTN, TIGO, Airtel, and
+                                        Vodafone) and provide the full suite of communications services throughout
+                                        Ghana.<br/>
+                                        ESS is licensed by the National Communications Authority in Ghana for the
+                                        following services provision: Voice-Inclusive Broadband Wireless Access Licence
+                                        in the 2.5-2.6Ghz range; Internet Data License; Public Data License.
+                                        Its areas of expertise and services on offer to clients include: Design and
+                                        Engineering of ICT Networks, Communication Systems Integration, Application
+                                        Software Development, Business Process Automation, Internet and Data (WAN, VPN)
+                                        Services under the UCOM brand name and Internet and WAN services under the UCOM
+                                        band.
+
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="row">
+
+                    <div class="col-md-12 bottommargin">
+
+                        <div class="team team-list clearfix">
+
+                            <div class="team-desc">
+                                <div class="team-title"><h4>HUMAN CAPITAL TRAINING & DEVELOPMENT CONSULTANTS </h4>
+                                    <span style="text-transform: capitalize">Achievers Consult, Accra-Ghana  </span>
+                                </div>
+                                <div class="team-content">
+                                    <p>Achievers Consult is a Human Capital Training & Development Consultancy firm
+                                        which was established in 2005 to collaborate with prospective clients to enhance
+                                        their respective organizational performances. The company focus is in the
+                                        financial, public and private sectors. Key among the services the company
+                                        provides are HR Consultancy, Recruitment Services, Training, Management
+                                        Services, Institutional Re-engineering, Technology consultancy and Business
+                                        Advisory Services. With the company’s in-depth experience in execution of
+                                        strategies, there is the willingness to assist our prospective clients in
+                                        developing their capabilities. By working in partnership with its clients, the
+                                        Company brings in, a wealth of knowledge and expertise. The company’s passion
+                                        for service excellence is built around client satisfaction.
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+
+            </div>
+
+        </div>
+
+    </section>
+    <!-- #content end -->
+
+    <!-- Content
+    ============================================= -->
+
+
+    <!-- Footer
+    ============================================= -->
+    <footer id="footer" class="dark">
+
+
+        <!-- Copyrights
+        ============================================= -->
+        <div id="copyrights">
+
+            <div class="container clearfix">
+
+                <div class="col_half">
+                    Copyrights &copy; 2017 All Rights Reserved Kron Finance<br>
+
+                    <div class="copyright-links"><a href="#">Terms of Use</a> / <a href="#">Privacy Policy</a></div>
+                </div>
+
+                <div class="col_half col_last tright">
+                    <div class="fright clearfix">
+                        <a href="#" class="social-icon si-small si-borderless si-facebook">
+                            <i class="icon-facebook"></i>
+                            <i class="icon-facebook"></i>
+                        </a>
+
+                        <a href="#" class="social-icon si-small si-borderless si-twitter">
+                            <i class="icon-twitter"></i>
+                            <i class="icon-twitter"></i>
+                        </a>
+
+                        <a href="#" class="social-icon si-small si-borderless si-gplus">
+                            <i class="icon-gplus"></i>
+                            <i class="icon-gplus"></i>
+                        </a>
+
+                        <a href="#" class="social-icon si-small si-borderless si-pinterest">
+                            <i class="icon-pinterest"></i>
+                            <i class="icon-pinterest"></i>
+                        </a>
+
+                        <a href="#" class="social-icon si-small si-borderless si-vimeo">
+                            <i class="icon-vimeo"></i>
+                            <i class="icon-vimeo"></i>
+                        </a>
+
+                        <a href="#" class="social-icon si-small si-borderless si-github">
+                            <i class="icon-github"></i>
+                            <i class="icon-github"></i>
+                        </a>
+
+                        <a href="#" class="social-icon si-small si-borderless si-yahoo">
+                            <i class="icon-yahoo"></i>
+                            <i class="icon-yahoo"></i>
+                        </a>
+
+                        <a href="#" class="social-icon si-small si-borderless si-linkedin">
+                            <i class="icon-linkedin"></i>
+                            <i class="icon-linkedin"></i>
+                        </a>
+                    </div>
+
+                    <div class="clear"></div>
+
+                    <i class="icon-envelope2"></i> info@krongh.com <span class="middot">&middot;</span> <i
+                        class="icon-headphones"></i> (+233) 30 277 0666 / 20 817 8661 <span
+                        class="middot">&middot;</span>
+                </div>
+
+            </div>
+
+        </div>
+        <!-- #copyrights end -->
+
+    </footer>
+    <!-- #footer end -->
+
+</div>
+<!-- #wrapper end -->
+
+<!-- Go To Top
+============================================= -->
+<div id="gotoTop" class="icon-angle-up"></div>
+
+<!-- Footer Scripts
+============================================= -->
+<script type="text/javascript" src="js/functions.js"></script>
+
+</body>
+</html>

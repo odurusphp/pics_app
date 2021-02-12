@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="author" content="SemiColonWeb" />
+
+	<!-- Stylesheets
+	============================================= -->
+	<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
+	<link rel="stylesheet" href="style.css" type="text/css" />
+	<link rel="stylesheet" href="css/dark.css" type="text/css" />
+	<link rel="stylesheet" href="css/font-icons.css" type="text/css" />
+	<link rel="stylesheet" href="css/animate.css" type="text/css" />
+	<link rel="stylesheet" href="css/magnific-popup.css" type="text/css" />
+
+	<link rel="stylesheet" href="css/responsive.css" type="text/css" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!--[if lt IE 9]>
+		<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+	<![endif]-->
+
+	<!-- External JavaScripts
+	============================================= -->
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/plugins.js"></script>
+
+	<!-- Document Title
+	============================================= -->
+	<title>Home - Kron Finance</title>
+
+</head>
+
+<body class="stretched">
+
+	<!-- Document Wrapper
+	============================================= -->
+	<div id="wrapper" class="clearfix">
+
+		<!-- Header
+		============================================= -->
+		<header id="header" class="full-header">
+
+			<div id="header-wrap">
+
+				<div class="container clearfix">
+
+					<div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
+
+					<!-- Logo
+					============================================= -->
+					<div id="logo" style="width: 180px; height: 100px; padding-top: 20px">
+					
+						<a href="index.html" class="standard-logo" data-dark-logo="images/landing/logo1.png">
+						<img src="images/landing/logo1.png" width="180" height="20" alt="Canvas Logo"></a>
+						<a href="index.html" class="retina-logo" data-dark-logo="images/landing/logo1.png"><img src="images/landing/logo1.png" alt="Canvas Logo"></a>
+						
+					</div><!-- #logo end -->
+
+					<!-- Primary Navigation
+					============================================= -->
+					<nav id="primary-menu" style="">
+
+						 <ul>
+							<li class="" style="color:#C40000"><a href="index.html"><div>Home</div></a></li>
+
+							<li><a href="about.html"><div>About Us</div></a></li>
+							<li class="mega-menu"><a href="products.html"><div>Products & Services</div></a></li>
+							<li class="current mega-menu"><a href="client.html"><div>Our Clienteles</div></a></li>
+							<li class="mega-menu"><a href="projects.html"><div>Key Projects</div></a></li>
+							<li><a href="our_team.html"><div>Team</div></a>
+								
+							</li>
+							<li class="mega-menu"><a href="contact.html"><div>Contact Us</div></a>
+								
+							</li>
+						</ul>
+
+
+
+
+						<!-- Top Search
+						============================================= -->
+					<!-- #top-search end -->
+
+					</nav><!-- #primary-menu end -->
+
+				</div>
+
+			</div>
+
+		</header><!-- #header end -->
+
+		<section id="slider" class="slider-parallax swiper_wrapper clearfix" style='height: 200px'>
+
+			<div class="swiper-container swiper-parent">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide dark" style="  background:linear-gradient(0deg,rgba(0,0,0,0.50),rgba(0,0,0,0.50)),url('images/landing/client.jpeg');">
+						<div class="container clearfix">
+							<div class="slider-caption slider-caption-center">
+								<h2 data-caption-animate="fadeInUp" style='font-size:40px'>Our Clienteles</h2>
+								<p data-caption-animate="fadeInUp" data-caption-delay="200">
+									
+									Investment Advisors, Management Consultants, Energy Consultants and Corporate Trainers
+								</p>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+			
+			</div>
+
+			<script>
+				jQuery(document).ready(function($){
+					var swiperSlider = new Swiper('.swiper-parent',{
+						paginationClickable: false,
+						slidesPerView: 1,
+						grabCursor: true,
+						onSwiperCreated: function(swiper){
+							$('[data-caption-animate]').each(function(){
+								var $toAnimateElement = $(this);
+								var toAnimateDelay = $(this).attr('data-caption-delay');
+								var toAnimateDelayTime = 0;
+								if( toAnimateDelay ) { toAnimateDelayTime = Number( toAnimateDelay ) + 750; } else { toAnimateDelayTime = 750; }
+								if( !$toAnimateElement.hasClass('animated') ) {
+									$toAnimateElement.addClass('not-animated');
+									var elementAnimation = $toAnimateElement.attr('data-caption-animate');
+									setTimeout(function() {
+										$toAnimateElement.removeClass('not-animated').addClass( elementAnimation + ' animated');
+									}, toAnimateDelayTime);
+								}
+							});
+						},
+						onSlideChangeStart: function(swiper){
+							$('#slide-number-current').html(swiper.activeIndex + 1);
+							$('[data-caption-animate]').each(function(){
+								var $toAnimateElement = $(this);
+								var elementAnimation = $toAnimateElement.attr('data-caption-animate');
+								$toAnimateElement.removeClass('animated').removeClass(elementAnimation).addClass('not-animated');
+							});
+						},
+						onSlideChangeEnd: function(swiper){
+							$('#slider .swiper-slide').each(function(){
+								if($(this).find('video').length > 0) { $(this).find('video').get(0).pause(); }
+							});
+							$('#slider .swiper-slide:not(".swiper-slide-active")').each(function(){
+								if($(this).find('video').length > 0) {
+									if($(this).find('video').get(0).currentTime != 0 ) $(this).find('video').get(0).currentTime = 0;
+								}
+							});
+							if( $('#slider .swiper-slide.swiper-slide-active').find('video').length > 0 ) { $('#slider .swiper-slide.swiper-slide-active').find('video').get(0).play(); }
+
+							$('#slider .swiper-slide.swiper-slide-active [data-caption-animate]').each(function(){
+								var $toAnimateElement = $(this);
+								var toAnimateDelay = $(this).attr('data-caption-delay');
+								var toAnimateDelayTime = 0;
+								if( toAnimateDelay ) { toAnimateDelayTime = Number( toAnimateDelay ) + 300; } else { toAnimateDelayTime = 300; }
+								if( !$toAnimateElement.hasClass('animated') ) {
+									$toAnimateElement.addClass('not-animated');
+									var elementAnimation = $toAnimateElement.attr('data-caption-animate');
+									setTimeout(function() {
+										$toAnimateElement.removeClass('not-animated').addClass( elementAnimation + ' animated');
+									}, toAnimateDelayTime);
+								}
+							});
+						}
+					});
+
+					$('#slider-arrow-left').on('click', function(e){
+						e.preventDefault();
+						swiperSlider.swipePrev();
+					});
+
+					$('#slider-arrow-right').on('click', function(e){
+						e.preventDefault();
+						swiperSlider.swipeNext();
+					});
+
+					$('#slide-number-current').html(swiperSlider.activeIndex + 1);
+					$('#slide-number-total').html(swiperSlider.slides.length);
+				});
+			</script>
+
+		</section>
+
+		<section id="content">
+
+			<div class="content-wrap">
+
+				<div class="container clearfix">
+				<div class="container clearfix">
+
+					<div class="col_full nobottommargin">
+
+						<div class="fancy-title title-bottom-border">
+							<h3>Our Clientele (New and Existing)</h3>
+						</div>
+
+						<p>
+							
+                          The Company has provided project finance, finance & investment, project appraisal, monitoring & evaluation, environmental, trade and general management advisory and general consultancy services for clients in the following categories
+
+						</p>
+
+						<div class="accordion accordion-bg clearfix">
+
+							<div class="acctitle"><i class="acc-closed icon-ok-circle"></i><i class="acc-open icon-remove-circle"></i>Clienteles</div>
+							<div class="acc_content clearfix">
+								<ul class="iconlist iconlist-color nobottommargin">
+									<li><i class="icon-ok"></i>B.Tech./ B.E / MCA degree in Computer Science, Engineering or a related stream.</li>
+								<li><i class="icon-ok"></i>	Private project (business) developers and investors – local and foreigners</li>
+<li><i class="icon-ok"></i>	Governments, European Union, United Nation Agencies and the World Bank sponsored Projects
+<li><i class="icon-ok"></i>	Non-Governmental Organization</li>
+<li><i class="icon-ok"></i>	Commodities Trader with no (or little) experience in the business terrain of Ghana and 
+West Africa</li>
+<li><i class="icon-ok"></i>	Major companies restructuring assignment in partnership with a capable and 
+knowledgeable local agent</li>
+<li><i class="icon-ok"></i>	Venture capital and private equity fund managers looking for high yielding and profitable 
+investments in Ghana and the West Africa</li>
+<li><i class="icon-ok"></i>	Expatriate Investor(s) in demand of local expertise for the management and evaluation of an 
+investment opportunity, prior to investment decision making</li>
+<li><i class="icon-ok"></i>	Local Agency and Project/Investment management services for large Multinationals with 
+business interest or commitment in Ghana and other West African countries</li> 
+<li><i class="icon-ok"></i>	Mining (oil and precious minerals) and construction companies.</li>
+
+								</ul>
+							</div>
+
+							
+
+					</div>
+
+				</div>
+
+		</section>
+
+		<!-- Content
+		============================================= -->
+		
+
+		<!-- Footer
+		============================================= -->
+		<footer id="footer" class="dark">
+
+			
+
+			<!-- Copyrights
+			============================================= -->
+			<div id="copyrights">
+
+				<div class="container clearfix">
+
+					<div class="col_half">
+						Copyrights &copy; 2017 All Rights Reserved Kron Finance<br>
+						<div class="copyright-links"><a href="#">Terms of Use</a> / <a href="#">Privacy Policy</a></div>
+					</div>
+
+					<div class="col_half col_last tright">
+						<div class="fright clearfix">
+							<a href="#" class="social-icon si-small si-borderless si-facebook">
+								<i class="icon-facebook"></i>
+								<i class="icon-facebook"></i>
+							</a>
+
+							<a href="#" class="social-icon si-small si-borderless si-twitter">
+								<i class="icon-twitter"></i>
+								<i class="icon-twitter"></i>
+							</a>
+
+							<a href="#" class="social-icon si-small si-borderless si-gplus">
+								<i class="icon-gplus"></i>
+								<i class="icon-gplus"></i>
+							</a>
+
+							<a href="#" class="social-icon si-small si-borderless si-pinterest">
+								<i class="icon-pinterest"></i>
+								<i class="icon-pinterest"></i>
+							</a>
+
+							<a href="#" class="social-icon si-small si-borderless si-vimeo">
+								<i class="icon-vimeo"></i>
+								<i class="icon-vimeo"></i>
+							</a>
+
+							<a href="#" class="social-icon si-small si-borderless si-github">
+								<i class="icon-github"></i>
+								<i class="icon-github"></i>
+							</a>
+
+							<a href="#" class="social-icon si-small si-borderless si-yahoo">
+								<i class="icon-yahoo"></i>
+								<i class="icon-yahoo"></i>
+							</a>
+
+							<a href="#" class="social-icon si-small si-borderless si-linkedin">
+								<i class="icon-linkedin"></i>
+								<i class="icon-linkedin"></i>
+							</a>
+						</div>
+
+						<div class="clear"></div>
+
+						<i class="icon-envelope2"></i> info@krongh.com <span class="middot">&middot;</span> <i class="icon-headphones"></i> (+233) 30 277 0666 / 20 817 8661 <span class="middot">&middot;</span> 
+					</div>
+
+				</div>
+
+			</div><!-- #copyrights end -->
+
+		</footer><!-- #footer end -->
+
+	</div><!-- #wrapper end -->
+
+	<!-- Go To Top
+	============================================= -->
+	<div id="gotoTop" class="icon-angle-up"></div>
+
+	<!-- Footer Scripts
+	============================================= -->
+	<script type="text/javascript" src="js/functions.js"></script>
+
+</body>
+</html>

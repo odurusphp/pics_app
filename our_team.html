@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta name="author" content="SemiColonWeb"/>
+
+    <!-- Stylesheets
+    ============================================= -->
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic"
+          rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css"/>
+    <link rel="stylesheet" href="style.css" type="text/css"/>
+    <link rel="stylesheet" href="css/dark.css" type="text/css"/>
+    <link rel="stylesheet" href="css/font-icons.css" type="text/css"/>
+    <link rel="stylesheet" href="css/animate.css" type="text/css"/>
+    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css"/>
+
+    <link rel="stylesheet" href="css/responsive.css" type="text/css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!--[if lt IE 9]>
+    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <![endif]-->
+
+    <!-- External JavaScripts
+    ============================================= -->
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/plugins.js"></script>
+
+    <style>
+        .team-content {
+            text-align: justify;
+        }
+    </style>
+
+    <!-- Document Title
+    ============================================= -->
+    <title>Home - Kron Finance</title>
+
+</head>
+
+<body class="stretched">
+
+<!-- Document Wrapper
+============================================= -->
+<div id="wrapper" class="clearfix">
+
+    <!-- Header
+    ============================================= -->
+    <header id="header" class="full-header">
+
+        <div id="header-wrap">
+
+            <div class="container clearfix">
+
+                <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
+
+                <!-- Logo
+                ============================================= -->
+                <div id="logo" style="width: 180px; height: 100px; padding-top: 20px">
+
+                    <a href="index.html" class="standard-logo" data-dark-logo="images/landing/logo1.png">
+                        <img src="images/landing/logo1.png" width="180" height="20" alt="Canvas Logo"></a>
+                    <a href="index.html" class="retina-logo" data-dark-logo="images/landing/logo1.png"><img
+                            src="images/landing/logo1.png" alt="Canvas Logo"></a>
+
+                </div>
+                <!-- #logo end -->
+
+                <!-- Primary Navigation
+                ============================================= -->
+                <nav id="primary-menu" style="">
+
+                   <ul>
+							<li class="" style="color:#C40000"><a href="index.html"><div>Home</div></a></li>
+
+							<li><a href="about.html"><div>About Us</div></a></li>
+							<li class="mega-menu"><a href="products.html"><div>Products & Services</div></a></li>
+							<li class="mega-menu"><a href="client.html"><div>Our Clienteles</div></a></li>
+							<li class="mega-menu"><a href="projects.html"><div>Key Projects</div></a></li>
+							<li class="current"><a href="our_team.html"><div>Team</div></a>
+								
+							</li>
+							<li class="mega-menu"><a href="contact.html"><div>Contact Us</div></a>
+								
+							</li>
+						</ul>
+
+
+
+
+                    <!-- Top Search
+                    ============================================= -->
+                    <!-- #top-search end -->
+
+                </nav>
+                <!-- #primary-menu end -->
+
+            </div>
+
+        </div>
+
+    </header>
+    <!-- #header end -->
+
+    <section id="slider" class="slider-parallax swiper_wrapper clearfix" style='height: 200px'>
+
+        <div class="swiper-container swiper-parent">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide dark"
+                     style="  background:linear-gradient(0deg,rgba(0,0,0,0.50),rgba(0,0,0,0.50)),url('images/landing/product.jpg');">
+                    <div class="container clearfix">
+                        <div class="slider-caption slider-caption-center">
+                            <h2 data-caption-animate="fadeInUp" style='font-size:40px'>Our Team of Members</h2>
+
+                            <p data-caption-animate="fadeInUp" data-caption-delay="200">
+
+                                Our team of expertise is a well welded blend of the tailored requisite professional
+                                expertise made up of the following TEAM OF EXPERTS.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <script>
+            jQuery(document).ready(function ($) {
+                var swiperSlider = new Swiper('.swiper-parent', {
+                    paginationClickable: false,
+                    slidesPerView: 1,
+                    grabCursor: true,
+                    onSwiperCreated: function (swiper) {
+                        $('[data-caption-animate]').each(function () {
+                            var $toAnimateElement = $(this);
+                            var toAnimateDelay = $(this).attr('data-caption-delay');
+                            var toAnimateDelayTime = 0;
+                            if (toAnimateDelay) {
+                                toAnimateDelayTime = Number(toAnimateDelay) + 750;
+                            } else {
+                                toAnimateDelayTime = 750;
+                            }
+                            if (!$toAnimateElement.hasClass('animated')) {
+                                $toAnimateElement.addClass('not-animated');
+                                var elementAnimation = $toAnimateElement.attr('data-caption-animate');
+                                setTimeout(function () {
+                                    $toAnimateElement.removeClass('not-animated').addClass(elementAnimation + ' animated');
+                                }, toAnimateDelayTime);
+                            }
+                        });
+                    },
+                    onSlideChangeStart: function (swiper) {
+                        $('#slide-number-current').html(swiper.activeIndex + 1);
+                        $('[data-caption-animate]').each(function () {
+                            var $toAnimateElement = $(this);
+                            var elementAnimation = $toAnimateElement.attr('data-caption-animate');
+                            $toAnimateElement.removeClass('animated').removeClass(elementAnimation).addClass('not-animated');
+                        });
+                    },
+                    onSlideChangeEnd: function (swiper) {
+                        $('#slider .swiper-slide').each(function () {
+                            if ($(this).find('video').length > 0) {
+                                $(this).find('video').get(0).pause();
+                            }
+                        });
+                        $('#slider .swiper-slide:not(".swiper-slide-active")').each(function () {
+                            if ($(this).find('video').length > 0) {
+                                if ($(this).find('video').get(0).currentTime != 0) $(this).find('video').get(0).currentTime = 0;
+                            }
+                        });
+                        if ($('#slider .swiper-slide.swiper-slide-active').find('video').length > 0) {
+                            $('#slider .swiper-slide.swiper-slide-active').find('video').get(0).play();
+                        }
+
+                        $('#slider .swiper-slide.swiper-slide-active [data-caption-animate]').each(function () {
+                            var $toAnimateElement = $(this);
+                            var toAnimateDelay = $(this).attr('data-caption-delay');
+                            var toAnimateDelayTime = 0;
+                            if (toAnimateDelay) {
+                                toAnimateDelayTime = Number(toAnimateDelay) + 300;
+                            } else {
+                                toAnimateDelayTime = 300;
+                            }
+                            if (!$toAnimateElement.hasClass('animated')) {
+                                $toAnimateElement.addClass('not-animated');
+                                var elementAnimation = $toAnimateElement.attr('data-caption-animate');
+                                setTimeout(function () {
+                                    $toAnimateElement.removeClass('not-animated').addClass(elementAnimation + ' animated');
+                                }, toAnimateDelayTime);
+                            }
+                        });
+                    }
+                });
+
+                $('#slider-arrow-left').on('click', function (e) {
+                    e.preventDefault();
+                    swiperSlider.swipePrev();
+                });
+
+                $('#slider-arrow-right').on('click', function (e) {
+                    e.preventDefault();
+                    swiperSlider.swipeNext();
+                });
+
+                $('#slide-number-current').html(swiperSlider.activeIndex + 1);
+                $('#slide-number-total').html(swiperSlider.slides.length);
+            });
+        </script>
+
+    </section>
+
+    <section id="content">
+
+        <div class="content-wrap">
+
+            <div class="container clearfix">
+
+                <div class="clear"></div>
+
+                <div class="fancy-title title-border">
+                    <h3>Our Management Team</h3>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-md-6 bottommargin">
+
+                        <div class="team team-list clearfix">
+
+                            <div class="team-desc">
+                                <div class="team-title"><h4>Robert Kwame Nartey </h4>
+                                    <span>Founder and Chief Executive  </span></div>
+                                <div class="team-content">
+                                    <p>Mr. Nartey has over twenty-five years working experience; working as business
+                                        development manager, corporate
+                                        financier, independent consultant and investment adviser for well-established
+                                        corporations and institutions
+                                        in Ghana and Europe. He has valuable expertise in the areas of: business
+                                        development, project financing &
+                                        management, corporate & financial restructuring and management information
+                                        systems He until recently worked
+                                        as the Country Manager for HSBC in Ghana, Sierra Leone, The Gambia and Liberia.
+                                        He has also worked for companies
+                                        like: The CDH Group (Investment Bankers), Accra, Cal Merchant Bank, Empretec
+                                        Ghana, Dow Chemicals (the Benelux),
+                                        Span Consultants (Holland), Volta Aluminium Company (VALCO, Tema), Volta River
+                                        Authority (Accra) and Billiton
+                                        Bogosu Gold (Bogosu), Gbewaa Civil Engineers Limited (engineering & consulting
+                                        company, Accra). He was a member
+                                        of a team of consultants, working as external consultants to the Ghana
+                                        Government/State Enterprises Commission
+                                        (SEC) on a World Bank-sponsored project on the pre-divestiture study, financial
+                                        restructuring and
+                                        re-capitalization, as well as strengthening of management information needs, of
+                                        selected State Owned
+                                        Enterprises (SOE’s). He has lectured at the National Banking College of Ghana,
+                                        Accra (as a visiting lecturer on
+                                        loan documentation and lending procedures); and as a guest lecture for the
+                                        ODA/Ministry of Health Capacity
+                                        Building Training Programme for In-charge Accountants at the various regional
+                                        centers’ in Ghana (lecture on
+                                        managing people, time and money).</p>
+
+                                    <p>
+                                        Mr. Nartey is computer literate and speaks and writes fluent English and German.
+                                        He holds a BSc. & MSc. degree in structural engineering from the Technische
+                                        Universitat, Dresden-Germany, as well as a combined degree Program awarding a
+                                        Masters in Business Administration (MBA-Corporate Finance & Strategic Planning)
+                                        with a Masters in Business Informatics (MBI), from Rotterdam School of
+                                        Management, Rotterdam, Holland and the Business School of University of
+                                        Michigan, Ann Arbor, USA.
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-6 bottommargin">
+
+                        <div class="team team-list clearfix">
+
+                            <div class="team-desc">
+                                <div class="team-title"><h4>Joshua E.K. Ofedie </h4><span>Executive Director (Energy & Power Sector Specialist)
+  (Also an appointed World Bank Consultant on Power and Energy)
+</span></div>
+                                <div class="team-content">
+                                    <p>
+                                        Mr. Ofedie has work for the past twenty-eight year in one of the LEADING power
+                                        utility companies in Africa. Prior to joining KRON, Mr Ofedie was the Chief
+                                        Executive of the Volta River Authority (VRA) in Ghana. A position he has had for
+                                        the past four years.<br/>
+                                        Working as the Executive Officer of VRA, Mr. Ofedie led the company’s Executive
+                                        Team responsible for the overall management of the electricity utility under
+                                        constrained economic conditions. He also handled the restructuring of debt,
+                                        mobilization of funds and the implementation of various power projects including
+                                        projects under the West Africa Power Pool, as well the streamlining of the
+                                        management support systems. He chaired various Boards including Volta Hotel,
+                                        Volta Lake Transport Company and Takoradi International Company and represented
+                                        the Government on the Board of Directors for the West African Pipeline Project.
+                                        Mr. Ofedie’s expertise include the following: financial management,
+                                        Computer-based financial modelling,corporate and business Planning, appraisal of
+                                        development expenditure, mobilization of project finance and the management of
+                                        development projects, electric utility management systems in a constrained
+                                        economic environment.<br/>
+                                        Mr. Ofedie holds an MPA in Public Finance, Applied/ Macro Economics from the
+                                        Harvard University Cambridge, Massachusetts. USA; an MBA in Corporate
+                                        Finance/Business Administration from the University of Ghana, Legon-Accra and a
+                                        B.Sc.(Hons) in Statistics with Mathematics also from the University of Ghana,
+                                        Legon-Accra.<br/>
+                                        In addition to the above mentioned academic qualifications, Mr. Ofedie has
+                                        participated in various valuable industrial attachments, including the
+                                        following: Institute of Public Private Partnership Restructuring Utilities;
+                                        University of Florida (2 weeks) seminar on Public Utilities Regulation;
+                                        California, USA: Introducing more competition to the electricity sector; Coopers
+                                        and Lybrand, U.K. - Treasury Management and Bid Evaluation Procedures in
+                                        practice at Coopers and Lybrand, UK; Ontario Hydro, Canada: Financial Management
+                                        as practiced at Ontario Hydro; and Morgan Bank, New York :International
+                                        Financial and Capital Markets and Foreign Exchange Transactions operations of
+                                        Central Banks.
+
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="row">
+
+                    <div class="col-md-12 bottommargin">
+
+                        <div class="team team-list clearfix">
+
+                            <div class="team-desc">
+                                <div class="team-title"><h4>Henry Tetteh Ahorlu </h4>
+                                    <span>Accounting And Financial Systems Expert  </span></div>
+                                <div class="team-content">
+                                    <p>Mr. Ahorlu has worked with the Volta River Authority (VRA) for thirty-five years
+                                        spanning from 1981 to 2016, working in various positions in finance and
+                                        accounting department, including Area Finance Manager, Acting Project Manager,
+                                        Principal Finance Officer, Senior Finance Officer, Finance Officer and Asst.
+                                        Finance Officer.<br/>
+                                        While at VRA, Mr Ahorlu participated in formulating Policies and Procedures in
+                                        the Finance and Materials Management Departments, and therefore gained valuable
+                                        experiences in Treasury Management, Budget preparation, Disbursement,
+                                        Performance Monitoring and Reporting, Financial Analysis, Human Resources,
+                                        Payroll Administration.<br/>
+                                        Over the period, Mr. Ahorlu developed the expertise in strategic management -
+                                        setting Objectives; Planning; Formulating strategies; and their implementation
+                                        with the focus on report reviews and line of actions. In addition, He has also
+                                        managed human resources, working a project supervisor for subordinates on
+                                        project planning jobs, ensuring that there are feedback mechanisms as part of
+                                        the project monitoring and evaluations mechanism.<br/>
+                                        Mr. Ahorlu has to his credit, excellent knowledge and considerable experience in
+                                        managing the Finance and Accounting functions of the organization and
+                                        preparation of the statutory accounting statements and reports. As well as
+                                        knowledge of External and Internal audit procedures and processes, in addition
+                                        to the management and supervision of staff along well established corporate
+                                        performance management processes and staff appraisal mechanism.<br/>
+                                        With regards to specific systems and procedures, Mr. Ahorlu has considerable
+                                        experience in Management and Implementation of Financial Systems (like General
+                                        Ledger, Accounts Payable, Accounts Receivable, Fixed Assets, Job Costing,
+                                        Materials Management Software, Human Resource and Payroll). As well as for
+                                        systems in the management of Stores Accounting and Stock Management and
+                                        Reporting.<br/>
+                                        Mr. Ahorlu is holder of a Post Graduate Certificate in Management (Henley
+                                        College London. UK) and BSc. Administration (with Accounting Option) from the
+                                        University of Ghana Legon-Accra, Ghana.
+
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="fancy-title title-border">
+                    <h3>Our Associative Consultants</h3>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-md-6 bottommargin">
+
+                        <div class="team team-list clearfix">
+
+                            <div class="team-desc">
+                                <div class="team-title"><h4>Philip Danso-Abeam </h4>
+                                    <span style="text-transform: capitalize">Accounting And Financial Analysis Expert  </span>
+                                </div>
+                                <div class="team-content">
+                                    <p>Mr. Danso-Abeam has since 1996 acquired first hand practical experience in
+                                        financial and general management consultancy. He has expertise in turning around
+                                        businesses facing acute financial and general business problems of course with
+                                        adequate moral and logistical support from business promoters and owners.
+                                        Philip’s unique advantage as a professional manager is that he had worked with
+                                        various business concerns with diverse interests.<br/>
+                                        Philip has an in-depth experience in Business Policy Formulation, Planning and
+                                        Implementation; Financial & Management Restructuring; Modelling of Financial &
+                                        Corporate Plans for Investment Appraisal & Evaluation; Corporate Debt, Cash Flow
+                                        & Funds Management; Financial Management & Control; Business Development &
+                                        Advisory Services, Institutional System Design & Planning and Documentation
+                                        Practices required for Institutional Strengthening and Capacity Building in both
+                                        public and private sectors in Ghana.<br/>
+                                        Among companies whose assignments Philip has handled single-handedly are those
+                                        in the manufacturing, construction, transport, education, information
+                                        technology, beauty care, advertising, wood processing, food & beverages, leasing
+                                        and insurance, financial sectors in Ghana.<br/>
+                                        Philip is a Chartered Accountant. He also holds a Bachelor’s degree in Finance &
+                                        Accounting from the University of Ghana (1985) and a Master’s degree in
+                                        International Relations (with a major in Management) from the International
+                                        University of Japan, Niigata, Japan (1991). He is a member of the Institute of
+                                        Chartered Accountants (Ghana) (1994).
+
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-6 bottommargin">
+
+                        <div class="team team-list clearfix">
+
+                            <div class="team-desc">
+                                <div class="team-title"><h4>Alex Acheampong </h4><span>Project Motoring & Evaluation Expert
+</span></div>
+                                <div class="team-content">
+                                    <p>
+                                        Mr. Acheampong has over twenty-six year working experience in project leadership
+                                        roles in information technology driven business process re-engineering solutions
+                                        with specialized leveraged experience to support M&E and ICT4D project
+                                        initiatives in sub Saharan Africa. He is results oriented and self driven
+                                        professional capable of managing multiple projects, build effective,
+                                        collaborative relationships with key stakeholders, seek out and develop
+                                        strategic, innovative solutions to meet clients’ objectives.<br/>
+                                        Mr. Acheampong has lectured at Ghana Institute for Public Administration (GIMPA)
+                                        on the World Bank’s 10 steps to Results Based M&E Seminar. He was the Lead
+                                        facilitator in the 10 Steps to RBM seminar for the Institute as part Capacity
+                                        Building initiative. For two years He worked at the Ghana National Development
+                                        Planning Commission (GNDP), working on the Ghana Poverty Reduction Strategy II -
+                                        Mapped performance indicators to data collection templates based on the three
+                                        pillars of the Results Framework. Prior the GNDP), Mr. Acheampong worked as
+                                        Project Team Lead & Manager for closed to ten year for clients like Merrill
+                                        Lynch, Lehman Brothers, GE Capital Corporation and PHH Mortgage.<br/>
+                                        Mr. Acheampong participated in an International Program for Evaluation Training
+                                        (IPDET) organized by the World Bank at the Carleton University, Canada. He has
+                                        also participated in a Six-Sigma-Quality training, with focus on green belt
+                                        designation, DFSS project implementation experience and Statistical and data
+                                        base modeling skills.<br/>
+                                        He is holder of a Post Graduate program in Operations Research from the Columbia
+                                        University, New York, a Post Graduate program in Management from McGill
+                                        University, Canada, a Bachelor’s degree in Quantitative Methods from Concordia
+                                        University, Canada and a Diploma in Computer Science from the University of
+                                        Science and Technology, Ghana
+
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="row">
+
+                    <div class="col-md-6 bottommargin">
+
+                        <div class="team team-list clearfix">
+
+                            <div class="team-desc">
+                                <div class="team-title"><h4>Moses Duphey </h4>
+                                    <span>Environmental Impact Assessment Expert  </span></div>
+                                <div class="team-content">
+                                    <p>Mr. Duphey has an excellent and vast environmental management and protection
+                                        working experience spanning over twenty-three years. His working experience with
+                                        the Environmental Protection Agency of
+                                        Ghana (EPA) offered him invaluable insight into the procedures and requirements
+                                        for successful environmental permit applications. Moses has conducted over sixty
+                                        Environmental Impact Assessments (EIA) including environmental and social impact
+                                        assessments (ESIA) for the World Bank, International Finance Corporation (IFC),
+                                        The Netherlands Finance Corporation (FMO), The European Development Bank, Danish
+                                        Development Agency (Danida), BURGEAP International, France as well as Government
+                                        of Ghana. Others include Volta River Authority Resettlement Trust Fund; the West
+                                        African Gas Pipeline Project, Trassaco Estate Housing Project, Accra; and the St
+                                        Jude Resources Mining Concession at Hwini Butre and Mpohor Concessions, Western
+                                        Region. Moses was the consultant for the Environmental Management Systems for
+                                        the billion-dollar Obajana Cement project in Kogi State, Nigeria funded by IFC,
+                                        FMO and European Development Bank. He is currently an International advisor on
+                                        Environmental and Social responsibility to IFC, FMO and the Obajana Cement Plc.
+
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-6 bottommargin">
+
+                        <div class="team team-list clearfix">
+
+                            <div class="team-desc">
+                                <div class="team-title"><h4>Felix Tetteh-fio </h4>
+                                    <span>Corporate Governance & Public Policy Expert </span></div>
+                                <div class="team-content">
+                                    <p>Mr. Tetteh-fio joined the team with tremendous experience from both the public
+                                        and private sectors of the economy. He holds an M.A. degree in economics and
+                                        Econometrics from the University of Kent at Canterbury in the UK after first
+                                        obtaining a B. A. in Economics and Statistics from the University of Ghana,
+                                        Legon.<br/>
+                                        Mr. Tetteh-fio’s working career spun across the Ghana Statistical Service where
+                                        he headed teams at various times working on generating, analyzing and
+                                        forecasting price (inflation), and public finance statistics. He later worked
+                                        Cal Bank (then Cal Merchant Bank) as Economist for the bank and its
+                                        subsidiaries. Here his duties included advising the group on macroeconomic and
+                                        microeconomic trends of the global and local economy for policy formulation and
+                                        pricing of the bank’s products and services. This was followed by a brief tint
+                                        with the flagship think-tank Centre for Policy Analysis (CEPA) as research
+                                        economist. His most immediate assignment was with the Office of the President of
+                                        the Republic of Ghana as an Advisor on Financial and Economic Policy. Here his
+                                        duties entailed providing advice on viable options to the presidency on a broad
+                                        range of financial and economic policies; coordinating, monitoring and
+                                        evaluating cross cutting economic and financial policies within government
+                                        entities.
+
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="row">
+
+                    <div class="col-md-12 bottommargin">
+
+                        <div class="team team-list clearfix">
+
+                            <div class="team-desc">
+                                <div class="team-title"><h4>Festus Quansar </h4>
+                                    <span>Land, Property & Fixed Assets Valuation Expert  </span></div>
+                                <div class="team-content">
+                                    <p>Mr. Quansar is a full-time Engineering, Valuation and Management Consultant and a
+                                        government Gazetted Marine Surveyor. He is currently involved in assignmment in
+                                        Feasibility Studies, Technical Audit, Engineering Training, Project Management,
+                                        Project Appraisal, Development and Monitoring, Industrial Development and
+                                        Management, Engineering Design and Development, Supervision of Construction and
+                                        Installation and Condition Assessment and Valuation of Plant, Machinery,
+                                        Equipment and Vehicles.<br/>
+                                        Mr. Quansar gained enomous working experience over the years on various
+                                        assignment conducted for DANIDA Private Sector Development Programme since 1993
+                                        to date has been involved with Pre-Investment studies, Project Implementation ,
+                                        Project Appraisal, Monitoring and Evaluation, Technical Auditing and Valuation
+                                        of Assets. Some of the major areas involved are Plastic Fish Boxes Project,
+                                        Strip Planked Epoxy Glued Canoe Construction Project, Life Saving Equipment
+                                        Project, Metal Stitching Project (a cold repair technology on Cast Iron), and
+                                        Polyurethane Project. Others include FlourMill Project, Dehydrated Fruits
+                                        Project in Ghana, Windmill Project, Farming, Agro Processing, Wood, Forestry,
+                                        Pharmaceuticals, Machine Shops and others. The Marine Survey assignments include
+                                        Conditional Surveys and Valuation of both merchant and cargo vessels and steel
+                                        and wooden fishing vessels.<br/>
+                                        Mr. Quansar is a graduate of the Penn Foster Career School in (P.A), USA,
+                                        specializing in programming. He also holds a BSc in Mechanical engineering from
+                                        KNUST.
+
+
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+    <!-- #content end -->
+
+    <!-- Content
+    ============================================= -->
+
+
+    <!-- Footer
+    ============================================= -->
+    <footer id="footer" class="dark">
+
+
+        <!-- Copyrights
+        ============================================= -->
+        <div id="copyrights">
+
+            <div class="container clearfix">
+
+                <div class="col_half">
+                    Copyrights &copy; 2017 All Rights Reserved Kron Finance<br>
+
+                    <div class="copyright-links"><a href="#">Terms of Use</a> / <a href="#">Privacy Policy</a></div>
+                </div>
+
+                <div class="col_half col_last tright">
+                    <div class="fright clearfix">
+                        <a href="#" class="social-icon si-small si-borderless si-facebook">
+                            <i class="icon-facebook"></i>
+                            <i class="icon-facebook"></i>
+                        </a>
+
+                        <a href="#" class="social-icon si-small si-borderless si-twitter">
+                            <i class="icon-twitter"></i>
+                            <i class="icon-twitter"></i>
+                        </a>
+
+                        <a href="#" class="social-icon si-small si-borderless si-gplus">
+                            <i class="icon-gplus"></i>
+                            <i class="icon-gplus"></i>
+                        </a>
+
+                        <a href="#" class="social-icon si-small si-borderless si-pinterest">
+                            <i class="icon-pinterest"></i>
+                            <i class="icon-pinterest"></i>
+                        </a>
+
+                        <a href="#" class="social-icon si-small si-borderless si-vimeo">
+                            <i class="icon-vimeo"></i>
+                            <i class="icon-vimeo"></i>
+                        </a>
+
+                        <a href="#" class="social-icon si-small si-borderless si-github">
+                            <i class="icon-github"></i>
+                            <i class="icon-github"></i>
+                        </a>
+
+                        <a href="#" class="social-icon si-small si-borderless si-yahoo">
+                            <i class="icon-yahoo"></i>
+                            <i class="icon-yahoo"></i>
+                        </a>
+
+                        <a href="#" class="social-icon si-small si-borderless si-linkedin">
+                            <i class="icon-linkedin"></i>
+                            <i class="icon-linkedin"></i>
+                        </a>
+                    </div>
+
+                    <div class="clear"></div>
+
+                    <i class="icon-envelope2"></i> info@krongh.com <span class="middot">&middot;</span> <i
+                        class="icon-headphones"></i> (+233) 30 277 0666 / 20 817 8661 <span
+                        class="middot">&middot;</span>
+                </div>
+
+            </div>
+
+        </div>
+        <!-- #copyrights end -->
+
+    </footer>
+    <!-- #footer end -->
+
+</div>
+<!-- #wrapper end -->
+
+<!-- Go To Top
+============================================= -->
+<div id="gotoTop" class="icon-angle-up"></div>
+
+<!-- Footer Scripts
+============================================= -->
+<script type="text/javascript" src="js/functions.js"></script>
+
+</body>
+</html>

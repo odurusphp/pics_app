@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="author" content="SemiColonWeb" />
+
+	<!-- Stylesheets
+	============================================= -->
+	<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
+	<link rel="stylesheet" href="style.css" type="text/css" />
+	<link rel="stylesheet" href="css/dark.css" type="text/css" />
+	<link rel="stylesheet" href="css/font-icons.css" type="text/css" />
+	<link rel="stylesheet" href="css/animate.css" type="text/css" />
+	<link rel="stylesheet" href="css/magnific-popup.css" type="text/css" />
+
+	<link rel="stylesheet" href="css/responsive.css" type="text/css" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!--[if lt IE 9]>
+		<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+	<![endif]-->
+
+	<!-- External JavaScripts
+	============================================= -->
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/plugins.js"></script>
+
+	<!-- Document Title
+	============================================= -->
+	<title>Home - Kron Finance</title>
+
+</head>
+
+<body class="stretched">
+
+	<!-- Document Wrapper
+	============================================= -->
+	<div id="wrapper" class="clearfix">
+
+		<!-- Header
+		============================================= -->
+		<header id="header" class="full-header">
+
+			<div id="header-wrap">
+
+				<div class="container clearfix">
+
+					<div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
+
+					<!-- Logo
+					============================================= -->
+					<div id="logo" style="width: 180px; height: 100px; padding-top: 20px">
+					
+						<a href="index.html" class="standard-logo" data-dark-logo="images/landing/logo1.png">
+						<img src="images/landing/logo1.png" width="180" height="20" alt="Canvas Logo"></a>
+						<a href="index.html" class="retina-logo" data-dark-logo="images/landing/logo1.png"><img src="images/landing/logo1.png" alt="Canvas Logo"></a>
+						
+					</div><!-- #logo end -->
+
+					<!-- Primary Navigation
+					============================================= -->
+					<nav id="primary-menu" style="">
+
+						 <ul>
+							<li class="" style="color:#C40000"><a href="index.html"><div>Home</div></a></li>
+
+							<li><a href="about.html"><div>About Us</div></a></li>
+							<li class="mega-menu"><a href="products.html"><div>Products & Services</div></a></li>
+							<li class="mega-menu"><a href="client.html"><div>Our Clienteles</div></a></li>
+							<li class="current mega-menu"><a href="projects.html"><div>Key Projects</div></a></li>
+							<li><a href="our_team.html"><div>Team</div></a>
+								
+							</li>
+							<li class="mega-menu"><a href="contact.html"><div>Contact Us</div></a>
+								
+							</li>
+						</ul>
+						
+
+						<!-- Top Search
+						============================================= -->
+					<!-- #top-search end -->
+
+					</nav><!-- #primary-menu end -->
+
+				</div>
+
+			</div>
+
+		</header><!-- #header end -->
+
+		<section id="slider" class="slider-parallax swiper_wrapper clearfix" style='height: 200px'>
+
+			<div class="swiper-container swiper-parent">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide dark" style="  background:linear-gradient(0deg,rgba(0,0,0,0.50),rgba(0,0,0,0.50)),url('images/landing/product.jpg');">
+						<div class="container clearfix">
+							<div class="slider-caption slider-caption-center">
+								<h2 data-caption-animate="fadeInUp" style='font-size:40px'>Key Completed Assisgnments</h2>
+								<p data-caption-animate="fadeInUp" data-caption-delay="200">
+									
+									Investment Advisors, Management Consultants, Energy Consultants and Corporate Trainers
+								</p>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+			
+			</div>
+
+			<script>
+				jQuery(document).ready(function($){
+					var swiperSlider = new Swiper('.swiper-parent',{
+						paginationClickable: false,
+						slidesPerView: 1,
+						grabCursor: true,
+						onSwiperCreated: function(swiper){
+							$('[data-caption-animate]').each(function(){
+								var $toAnimateElement = $(this);
+								var toAnimateDelay = $(this).attr('data-caption-delay');
+								var toAnimateDelayTime = 0;
+								if( toAnimateDelay ) { toAnimateDelayTime = Number( toAnimateDelay ) + 750; } else { toAnimateDelayTime = 750; }
+								if( !$toAnimateElement.hasClass('animated') ) {
+									$toAnimateElement.addClass('not-animated');
+									var elementAnimation = $toAnimateElement.attr('data-caption-animate');
+									setTimeout(function() {
+										$toAnimateElement.removeClass('not-animated').addClass( elementAnimation + ' animated');
+									}, toAnimateDelayTime);
+								}
+							});
+						},
+						onSlideChangeStart: function(swiper){
+							$('#slide-number-current').html(swiper.activeIndex + 1);
+							$('[data-caption-animate]').each(function(){
+								var $toAnimateElement = $(this);
+								var elementAnimation = $toAnimateElement.attr('data-caption-animate');
+								$toAnimateElement.removeClass('animated').removeClass(elementAnimation).addClass('not-animated');
+							});
+						},
+						onSlideChangeEnd: function(swiper){
+							$('#slider .swiper-slide').each(function(){
+								if($(this).find('video').length > 0) { $(this).find('video').get(0).pause(); }
+							});
+							$('#slider .swiper-slide:not(".swiper-slide-active")').each(function(){
+								if($(this).find('video').length > 0) {
+									if($(this).find('video').get(0).currentTime != 0 ) $(this).find('video').get(0).currentTime = 0;
+								}
+							});
+							if( $('#slider .swiper-slide.swiper-slide-active').find('video').length > 0 ) { $('#slider .swiper-slide.swiper-slide-active').find('video').get(0).play(); }
+
+							$('#slider .swiper-slide.swiper-slide-active [data-caption-animate]').each(function(){
+								var $toAnimateElement = $(this);
+								var toAnimateDelay = $(this).attr('data-caption-delay');
+								var toAnimateDelayTime = 0;
+								if( toAnimateDelay ) { toAnimateDelayTime = Number( toAnimateDelay ) + 300; } else { toAnimateDelayTime = 300; }
+								if( !$toAnimateElement.hasClass('animated') ) {
+									$toAnimateElement.addClass('not-animated');
+									var elementAnimation = $toAnimateElement.attr('data-caption-animate');
+									setTimeout(function() {
+										$toAnimateElement.removeClass('not-animated').addClass( elementAnimation + ' animated');
+									}, toAnimateDelayTime);
+								}
+							});
+						}
+					});
+
+					$('#slider-arrow-left').on('click', function(e){
+						e.preventDefault();
+						swiperSlider.swipePrev();
+					});
+
+					$('#slider-arrow-right').on('click', function(e){
+						e.preventDefault();
+						swiperSlider.swipeNext();
+					});
+
+					$('#slide-number-current').html(swiperSlider.activeIndex + 1);
+					$('#slide-number-total').html(swiperSlider.slides.length);
+				});
+			</script>
+
+		</section>
+
+		<section id="content">
+
+			<div class="content-wrap">
+
+				<div class="container clearfix">
+				<div class="container clearfix">
+
+					<div class="col_full nobottommargin">
+
+						<div class="fancy-title title-bottom-border">
+							<h3>SELECTED KEY COMPLETED ASSIGNMENTS</h3>
+						</div>
+
+						<p>
+							The following are key completed assignments by KRON working with its associated partners:
+						</p>
+
+						<div class="accordion accordion-bg clearfix">
+
+							<div class="acctitle"><i class="acc-closed icon-ok-circle"></i><i class="acc-open icon-remove-circle"></i>
+                           
+                           PUBLIC-PRIVATE-PARTNERSHIP (PPP) PROJECTS
+							</div>
+							<div class="acc_content clearfix">
+								<ul class="iconlist iconlist-color nobottommargin">
+									<li><i class="icon-ok"></i>
+                                      	<stong>Transaction Advisor/Consultant </stong>– Apex Pollution Control Company Limited (APEX-PCCL)/Ministry of Environment, Science, Technology and Innovation (MESTI) -  PPP arrangement to implement the vehicle emission control project under the Government of Ghana’s Pollution Under Control Programme throughout the country from “day one” working closely with the Sector Ministry (MESTI) and the Ministry of Transport (MoT) and their respective departments and agencies. 
+The Pollution Under Control (PUC) Programme is a two-phased project, planned to be implemented as follows: i) The Phase I - Motor Vehicle Emission Control Project (in 2011); and ii) The Phase II  - Pollution Under Control Project for the Manufacturing, Mines, Oil and Gas Sectors of the Ghanaian Economy. Developed road map for the PPP arrangement and also drafted key MoUs and PPP agreements.
+
+									</li>
+								<li><i class="icon-ok"></i>
+  Drafted a guideline for the development of successful Ghanaian Public-Private-Partnership, with emphasis on both public-led PPP and market-led PPP. The draft is being discussion with the Ministry responsible for PPP and Ministry of Finance & Economic Planning
+								</li>
+
+
+								</ul>
+							</div>
+
+							<div class="acctitle"><i class="acc-closed icon-ok-circle"></i><i class="acc-open icon-remove-circle"></i>PROJECT MANAGEMENT, MONITORING & EVALUATION</div>
+							<div class="acc_content clearfix">
+								<ul class="iconlist iconlist-color nobottommargin">
+									<li><i class="icon-plus-sign"></i>Advising Consultant - (Golden Beach Hotel Limited) To conduct a detailed situational review of the finance and investments operations of Golden Beach Hotel. To develop a Request for Proposal (RFP). To review and analyze bids received from prospective strategic partner(s). To update the Valuation Report of Golden Beach Hotel and bring it to currency.</li>
+									<li><i class="icon-plus-sign"></i>Advising Consultant – End of Term Evaluation of the Trade Sector Support Program (TSSP). (A Ministry of Trade and World Bank Sponsored Project). This was an M&E project aimed as assessing the extent to which output of the program has been attained.</li>
+									<li><i class="icon-plus-sign"></i>
+									Advising Consultant – Development of a Monitoring and Evaluation System for the Natural Resource and Environmental Governance Sectors of Ghana ( a Ministry of Finance & Economic Planning and World Bank Project). This assignment involved the preparation of sectoral Monitoring and Evaluation System for the Ministry of Finance, Ministry of Lands and Natural Resources, Ministry of Environment Science and Technology, Minerals Commission, Environmental Protection Agency and the Forestry Commission</li>
+
+									<li><i class="icon-plus-sign"></i>Advising Consultant – Commercialization of Volta River Authority (VRA) Schools Department into a Self-Sustaining Commercial Entity. ( Volta River Authority and World Bank Sponsored Project). This Assignment involved the preparation of a new business plan and financial projection and subsequently looking for strategic investor to partner the VRA Schools department with the objective of turning it around and making it profitable and self-sustaining commercial entity.</li>
+
+									<li><i class="icon-plus-sign"></i>Advising Consultant – The appraisal of the project for the facility to acquire up to USD 125 million senior secured term loan in favour of “SWAP Technologies and Telecomms PLC” in the Federal Republic of Nigeria. This consulting assignment was executed for E Bank for Investment and Development (EBID)</li>
+
+									<li><i class="icon-plus-sign"></i>Advising Consultant – Best Practice Review of Business Development Services ( A Ministry of Trade / World Bank sponsored Project) – Development of Best Practice Business Development model for Ghana based on international best practices in Singapore and Ireland.</li>
+
+
+									<li><i class="icon-plus-sign"></i>
+                                    Advising Consultant – The Ghana MSME Project (a Ghana Government/World Bank financed Project) – an M&E assignment for the Ministry of Trade, Industries, Presidential Special Initiates and Private Sector Development – to conduct a  Mid-Term Review of the Ghana MSME Project.
+									</li>
+
+									<li><i class="icon-plus-sign"></i>
+                                    Advising Consultant/Mr. R.K. Nartey – Ministry of Trade, Industry, Private Sector Development & PSI (MoTI/PSD-PSI)/Private Sector Development Strategy (PSDS Project) – an Independent Review of the 3- year Strategy and Business Plan of the Ghana Investments Promotion Centre, GIPC.
+									</li>
+									<li><i class="icon-plus-sign"></i>Advising Consultant – The Ghana MSME Project (a Ghana Government/World Bank financed Project) – an M&E assignment for the Ministry of Trade, Industries, Presidential Special Initiates and Private Sector Development – on the preparation of issue paper for the mid-term review of the Ghana MSME Project
+									</li>
+                                    <li><i class="icon-plus-sign"></i>
+									Financial Consultant (to GFA Consulting Group)- The Support Programme for Enterprise Empowerment and Development (SPEED) Ghana: conducted a social and economic impact assessment of the various form of credit provided through intermediaries to Micro & Small Enterprises (MSEs) in the private sector engaged in the production, services and trade sectors. </li>
+<li><i class="icon-plus-sign"></i>Financial Consultant: SPEED Ghana – Conducted systems and package review and also developed an appropriate strategy for the re-launch of the POCKET ACCOUNTANT, an Accounting Software developed by Competency Based Advisory (CBA), which was financially supported and marketed to qualified and selected MSMEs in Ghana.</li>
+
+<li><i class="icon-plus-sign"></i>
+									Consultant - Micro- & Small-Scale Enterprises (MSEs) Market Study under the GTZ/PSME Project in 2001: local partner and Business Development Services Providers for Accra, Takoradi, Kumasi and Ho.  </li>
+
+
+<li><i class="icon-plus-sign"></i>
+Local Consultant - GTZ/Government of Ghana Support to SMEs in 2001: An International Financial Sector Study, whose input was included the design of an Implementational Framework for the Financial Support for SMEs in Ghana the European Union.
+									  </li>
+								</ul>
+							</div>
+
+							<div class="acctitle"><i class="acc-closed icon-ok-circle"></i><i class="acc-open icon-remove-circle"></i>ENERGY ADVISORY</div>
+			<div class="acc_content clearfix">
+								<ul class="iconlist iconlist-color nobottommargin">
+
+<li><i class="icon-plus-sign"></i>Advising Consultant – Capacity building support for the ECOWAS Regional Electricity Regulatory Authority (ERERA) - The World Bank Public-Private Infrastructure Advisory Facility (PPIAF) for ECOWAS.</li> 
+<li><i class="icon-plus-sign"></i>Reviewing Financial Consultants - Project Peer Review - Economic and Financial Analysis for the West  African  Power  Pool INTERCONNECTION PROJECT for Han (Ghana) – Bobo Dioulasso (Burkina Faso) – Sikasso (Mail) – Bamako (Mail). </li>
+<li><i class="icon-plus-sign"></i>Implementing Leader of the Executive Team – of a Leading African Utility Company responsible for the overall management of the electric utility in a constrained economic environment. </li>
+<li><i class="icon-plus-sign"></i>Chief Executive Experiences – Project development, mobilization, disbursement and reporting on donor funds from multilateral institutions including the World Bank Group, European Investment Bank, African Development Bank among others. The restructuring of both short and long term debt and implementation of various power projects including projects under the Takoradi and Tema Thermal Plant Projects, Transmission lines under the West Africa Power Pool, the West African Pipeline Project.</li>
+<li><i class="icon-plus-sign"></i>lanning & Programming of a Leading African Utility Company – Planning, budgeting and operational reviews; project development and structuring. </li>
+
+</ul>
+
+							</div>
+
+
+							<div class="acctitle"><i class="acc-closed icon-ok-circle"></i><i class="acc-open icon-remove-circle"></i>MANAGEMENT AND FINANCIAL ADVISORY </div>
+			<div class="acc_content clearfix">
+								<ul class="iconlist iconlist-color nobottommargin">
+
+
+
+<li><i class="icon-plus-sign"></i>Financial Advisers - United Nation Environmental Programme (UNEP) –Technology, Industry, Economics, Energy and Ozon Action: The Development and Design for the implementation of the Renewable Energy and e-Sustainability Initiative (REeSI) Project in Ghana.</li>
+<li><i class="icon-plus-sign"></i>Financial Sector Adviser - SEM Financial Services/International Finance Corporation, USA: Ghana Micro Small and Medium Enterprise Project (MSME) access to finance assessment Banking Sector Advisor.</li>
+<li><i class="icon-plus-sign"></i>Local Consultant – AFRITEL GHANA LIMITED: The listing of a Ghanaian Telecommunication Company on the Alternate Investment Market (AIM) of the London Stock Exchange (LSE) – on-hold</li>
+
+
+</ul>
+
+							</div>
+
+
+							<div class="acctitle"><i class="acc-closed icon-ok-circle"></i><i class="acc-open icon-remove-circle"></i>PRIVATISATION/ACQUISITION ADVISORY </div>
+			<div class="acc_content clearfix">
+								<ul class="iconlist iconlist-color nobottommargin">
+
+
+
+<li><i class="icon-plus-sign"></i>Financial Advisers - United Nation Environmental Programme (UNEP) –Technology, Industry, Economics, Energy and Ozon Action: The Development and Design for the implementation of the Renewable Energy and e-Sustainability Initiative (REeSI) Project in Ghana.</li>
+<li><i class="icon-plus-sign"></i>Financial Sector Adviser - SEM Financial Services/International Finance Corporation, USA: Ghana Micro Small and Medium Enterprise Project (MSME) access to finance assessment Banking Sector Advisor.</li>
+<li><i class="icon-plus-sign"></i>Local Consultant – AFRITEL GHANA LIMITED: The listing of a Ghanaian Telecommunication Company on the Alternate Investment Market (AIM) of the London Stock Exchange (LSE) – on-hold</li>
+
+<li><i class="icon-plus-sign"></i>Investment Advisor – Flight Services Limited /NAS Airport Services Limited: The Acquisitions of Airways Catering Limited, a subsidiary of the liquidated Ghana Airways Limited.</li>
+<li><i class="icon-plus-sign"></i>Investments Advisor – ERK Consortium Limited: The Acquisition of Danafco Limited, a pharmaceutical manufacturing and wholesale company, form its existing shareholders including Ghana Venture Funds Company Limited and IFU of Denmark.</li>
+<li><i class="icon-plus-sign"></i>Investments Advisor – Narrok-Kpong Farms Limited: A joint-venture arrangement for the management of the existing assets of Kpong Farms Limited, a subsidiary of the Volta River Authority (VRA).</li>
+<li><i class="icon-plus-sign"></i>Previous Privatisation under the Government of Ghana/World Bank SOE Privatisation Exercise working with the Divestiture Implementation Committee (DIC) include the following:-
+<br/>	The Coca-cola Bottling Company of Ghana Limited (GNTC Bottling Company)
+<br/>	Gliksten (West Africa) Limited
+<br/>	Phyto-Riker (GIHOC) Pharmaceutical Manufacturing Company Limited. </li>
+<li><i class="icon-plus-sign"></i>As per the experiences of its management team of the company,  specialized advisory services were provided for the preparation  work and relevant documentation for the privatization of the following financial institutions:
+<br/>	National Investment Bank Limited (Financial Advisory Team)–Privatization was not completed due to Government intervention.
+<br/>	Ghana Commercial Bank Limited – Completed all financial due diligence for the implementation of the privatization exercise.
+</li>
+
+
+
+</ul>
+
+
+
+							</div>
+
+						</div>
+
+						
+					</div>
+
+				</div>
+
+		</section>
+
+		<!-- Content
+		============================================= -->
+		
+
+		<!-- Footer
+		============================================= -->
+		<footer id="footer" class="dark">
+
+			
+
+			<!-- Copyrights
+			============================================= -->
+			<div id="copyrights">
+
+				<div class="container clearfix">
+
+					<div class="col_half">
+						Copyrights &copy; 2017 All Rights Reserved Kron Finance<br>
+						<div class="copyright-links"><a href="#">Terms of Use</a> / <a href="#">Privacy Policy</a></div>
+					</div>
+
+					<div class="col_half col_last tright">
+						<div class="fright clearfix">
+							<a href="#" class="social-icon si-small si-borderless si-facebook">
+								<i class="icon-facebook"></i>
+								<i class="icon-facebook"></i>
+							</a>
+
+							<a href="#" class="social-icon si-small si-borderless si-twitter">
+								<i class="icon-twitter"></i>
+								<i class="icon-twitter"></i>
+							</a>
+
+							<a href="#" class="social-icon si-small si-borderless si-gplus">
+								<i class="icon-gplus"></i>
+								<i class="icon-gplus"></i>
+							</a>
+
+							<a href="#" class="social-icon si-small si-borderless si-pinterest">
+								<i class="icon-pinterest"></i>
+								<i class="icon-pinterest"></i>
+							</a>
+
+							<a href="#" class="social-icon si-small si-borderless si-vimeo">
+								<i class="icon-vimeo"></i>
+								<i class="icon-vimeo"></i>
+							</a>
+
+							<a href="#" class="social-icon si-small si-borderless si-github">
+								<i class="icon-github"></i>
+								<i class="icon-github"></i>
+							</a>
+
+							<a href="#" class="social-icon si-small si-borderless si-yahoo">
+								<i class="icon-yahoo"></i>
+								<i class="icon-yahoo"></i>
+							</a>
+
+							<a href="#" class="social-icon si-small si-borderless si-linkedin">
+								<i class="icon-linkedin"></i>
+								<i class="icon-linkedin"></i>
+							</a>
+						</div>
+
+						<div class="clear"></div>
+
+						<i class="icon-envelope2"></i> info@krongh.com <span class="middot">&middot;</span> <i class="icon-headphones"></i> (+233) 30 277 0666 / 20 817 8661 <span class="middot">&middot;</span> 
+					</div>
+
+				</div>
+
+			</div><!-- #copyrights end -->
+
+		</footer><!-- #footer end -->
+
+	</div><!-- #wrapper end -->
+
+	<!-- Go To Top
+	============================================= -->
+	<div id="gotoTop" class="icon-angle-up"></div>
+
+	<!-- Footer Scripts
+	============================================= -->
+	<script type="text/javascript" src="js/functions.js"></script>
+
+</body>
+</html>

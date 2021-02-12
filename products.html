@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="author" content="SemiColonWeb" />
+
+	<!-- Stylesheets
+	============================================= -->
+	<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
+	<link rel="stylesheet" href="style.css" type="text/css" />
+	<link rel="stylesheet" href="css/dark.css" type="text/css" />
+	<link rel="stylesheet" href="css/font-icons.css" type="text/css" />
+	<link rel="stylesheet" href="css/animate.css" type="text/css" />
+	<link rel="stylesheet" href="css/magnific-popup.css" type="text/css" />
+
+	<link rel="stylesheet" href="css/responsive.css" type="text/css" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!--[if lt IE 9]>
+		<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+	<![endif]-->
+
+	<!-- External JavaScripts
+	============================================= -->
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/plugins.js"></script>
+
+	<!-- Document Title
+	============================================= -->
+	<title>Home - Kron Finance</title>
+
+</head>
+
+<body class="stretched">
+
+	<!-- Document Wrapper
+	============================================= -->
+	<div id="wrapper" class="clearfix">
+
+		<!-- Header
+		============================================= -->
+		<header id="header" class="full-header">
+
+			<div id="header-wrap">
+
+				<div class="container clearfix">
+
+					<div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
+
+					<!-- Logo
+					============================================= -->
+					<div id="logo" style="width: 180px; height: 100px; padding-top: 20px">
+					
+						<a href="index.html" class="standard-logo" data-dark-logo="images/landing/logo1.png">
+						<img src="images/landing/logo1.png" width="180" height="20" alt="Canvas Logo"></a>
+						<a href="index.html" class="retina-logo" data-dark-logo="images/landing/logo1.png"><img src="images/landing/logo1.png" alt="Canvas Logo"></a>
+						
+					</div><!-- #logo end -->
+
+					<!-- Primary Navigation
+					============================================= -->
+					<nav id="primary-menu" style="">
+
+						 <ul>
+							<li class="" style="color:#C40000"><a href="index.html"><div>Home</div></a></li>
+
+							<li><a href="about.html"><div>About Us</div></a></li>
+							<li class="current mega-menu"><a href="products.html"><div>Products & Services</div></a></li>
+							<li class="mega-menu"><a href="client.html"><div>Our Clienteles</div></a></li>
+							<li class="mega-menu"><a href="projects.html"><div>Key Projects</div></a></li>
+							<li><a href="our_team.html"><div>Team</div></a>
+								
+							</li>
+							<li class="mega-menu"><a href="contact.html"><div>Contact Us</div></a>
+								
+							</li>
+						</ul>
+
+						
+
+						<!-- Top Search
+						============================================= -->
+					<!-- #top-search end -->
+
+					</nav><!-- #primary-menu end -->
+
+				</div>
+
+			</div>
+
+		</header><!-- #header end -->
+
+		<section id="slider" class="slider-parallax swiper_wrapper clearfix" style='height: 200px'>
+
+			<div class="swiper-container swiper-parent">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide dark" style="  background:linear-gradient(0deg,rgba(0,0,0,0.50),rgba(0,0,0,0.50)),url('images/landing/product.jpg');">
+						<div class="container clearfix">
+							<div class="slider-caption slider-caption-center">
+								<h2 data-caption-animate="fadeInUp" style='font-size:40px'>Products and Services</h2>
+								<p data-caption-animate="fadeInUp" data-caption-delay="200">
+									
+									Investment Advisors, Management Consultants, Energy Consultants and Corporate Trainers
+								</p>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+			
+			</div>
+
+			<script>
+				jQuery(document).ready(function($){
+					var swiperSlider = new Swiper('.swiper-parent',{
+						paginationClickable: false,
+						slidesPerView: 1,
+						grabCursor: true,
+						onSwiperCreated: function(swiper){
+							$('[data-caption-animate]').each(function(){
+								var $toAnimateElement = $(this);
+								var toAnimateDelay = $(this).attr('data-caption-delay');
+								var toAnimateDelayTime = 0;
+								if( toAnimateDelay ) { toAnimateDelayTime = Number( toAnimateDelay ) + 750; } else { toAnimateDelayTime = 750; }
+								if( !$toAnimateElement.hasClass('animated') ) {
+									$toAnimateElement.addClass('not-animated');
+									var elementAnimation = $toAnimateElement.attr('data-caption-animate');
+									setTimeout(function() {
+										$toAnimateElement.removeClass('not-animated').addClass( elementAnimation + ' animated');
+									}, toAnimateDelayTime);
+								}
+							});
+						},
+						onSlideChangeStart: function(swiper){
+							$('#slide-number-current').html(swiper.activeIndex + 1);
+							$('[data-caption-animate]').each(function(){
+								var $toAnimateElement = $(this);
+								var elementAnimation = $toAnimateElement.attr('data-caption-animate');
+								$toAnimateElement.removeClass('animated').removeClass(elementAnimation).addClass('not-animated');
+							});
+						},
+						onSlideChangeEnd: function(swiper){
+							$('#slider .swiper-slide').each(function(){
+								if($(this).find('video').length > 0) { $(this).find('video').get(0).pause(); }
+							});
+							$('#slider .swiper-slide:not(".swiper-slide-active")').each(function(){
+								if($(this).find('video').length > 0) {
+									if($(this).find('video').get(0).currentTime != 0 ) $(this).find('video').get(0).currentTime = 0;
+								}
+							});
+							if( $('#slider .swiper-slide.swiper-slide-active').find('video').length > 0 ) { $('#slider .swiper-slide.swiper-slide-active').find('video').get(0).play(); }
+
+							$('#slider .swiper-slide.swiper-slide-active [data-caption-animate]').each(function(){
+								var $toAnimateElement = $(this);
+								var toAnimateDelay = $(this).attr('data-caption-delay');
+								var toAnimateDelayTime = 0;
+								if( toAnimateDelay ) { toAnimateDelayTime = Number( toAnimateDelay ) + 300; } else { toAnimateDelayTime = 300; }
+								if( !$toAnimateElement.hasClass('animated') ) {
+									$toAnimateElement.addClass('not-animated');
+									var elementAnimation = $toAnimateElement.attr('data-caption-animate');
+									setTimeout(function() {
+										$toAnimateElement.removeClass('not-animated').addClass( elementAnimation + ' animated');
+									}, toAnimateDelayTime);
+								}
+							});
+						}
+					});
+
+					$('#slider-arrow-left').on('click', function(e){
+						e.preventDefault();
+						swiperSlider.swipePrev();
+					});
+
+					$('#slider-arrow-right').on('click', function(e){
+						e.preventDefault();
+						swiperSlider.swipeNext();
+					});
+
+					$('#slide-number-current').html(swiperSlider.activeIndex + 1);
+					$('#slide-number-total').html(swiperSlider.slides.length);
+				});
+			</script>
+
+		</section>
+
+		<section id="content">
+
+			<div class="content-wrap">
+
+				<div class="container clearfix">
+
+					<div id="faqs" class="faqs">
+
+						<h3>Our Products and Services:</h3>
+
+						<p>SPECIALIZED SERVICES ON OFFER TO ITS EXISTING AND NEW CLIENTS 
+(i.e. Governments, World Bank and European Union and their Agencies, Private Corporates (both local and multi-national/international) including SMEs) and Public Sector Ministries, departments and Agencies
+</p>
+
+						<div class="divider"><i class="icon-circle"></i></div>
+
+						<div class="col_half nobottommargin">
+
+							<h4 id="faq-1"><strong>1.</strong> Project/Business development, monitoring and evaluation</h4>
+
+<p>	
+<ul>
+<li>Initiation and preparation of Project/ Business proposals for new and existing Projects. </li>
+<li>Preparation of Feasibility Reports and Project Evaluation.</li>
+<li>Preparation of Business Plans, Pre-investment Study Reports and Institutional Documentation.</li>
+<li>Monitoring and Evaluation of new and existing projects.</li>
+<li>Execution of Program Evaluation and Review Technique (PERT) Analysis of various Projects, and </li>
+<li>Project Completion assessments/evaluation </li>
+</ul>
+
+</p>
+
+							<div class="line"></div>
+
+							<h4 id="faq-2"><strong>2.</strong> Project/Business finance arrangement and management</h4>
+							<p>
+							<ul>
+							<li>Assistance to clients in developing and placing new Financial Instruments in the Ghanaian market.</li>
+<li>	Providing Finance and Investment advice and Investment management services for Pension and 
+Provident funds.</li>
+<li>	Development of new and innovative instruments which meet specific funding requirements of 
+Prospective clients, and</li>
+<li>	Advice on financing options and facilitate financing for Project.</li>
+
+
+
+							</ul>
+								
+
+							</p>
+
+							<div class="line"></div>
+
+							<h4 id="faq-3"><strong>3.</strong> Local agency and office representative of expatriate investors and multinational companies with business interest in Ghana and other West African countries </h4>
+
+							<p>
+							<ul>
+							<li>Office representations of foreign companies in Ghana and West Africa sub-region.</li>
+<li>	Business/Investment management on behalf of local and foreign investors within the west Africa 
+Sub-region.</li>
+<li>	General trade and investment advisory service, and </li>
+<li>	Assistance to new entrants in the finance and investment market within the West Africa Sub-region.</li>
+
+
+
+                            </ul>
+							</p>
+
+							<div class="line"></div>
+
+							<h4 id="faq-4"><strong>4.</strong> General investments banking services</h4>
+							<p>
+							<ul>
+								
+<li>	Company valuation (especially for non-listed companies) </li>
+<li>Pre-investments study and Advisory services.</li>
+<li>	Mergers and Acquisition (especially for non-listed companies).</li>
+<li>	Company takeovers and Management buyouts, and </li>
+<li>	Post-acquisition (or takeover) management advisory services.</li>
+</ul>
+
+
+							</p>
+
+						
+
+						</div>
+
+						<div class="col_half nobottommargin col_last">
+
+							<h4 id="faq-7"><strong>5.</strong> Environmental and social assessment services</h4>
+							<p>
+								<ul>
+								<li>Environmental and social scoping and baseline studies.</li>
+<li>	Environmental and social monitoring and auditing.</li>
+<li>	Environmental and social management plans.</li>
+<li>	Environmental and social impact assessment and environmental management systems.</li>
+<li>	Environmental due diligence audit.</li>
+<li>	Initial environmental examinations.</li>
+<li>	Statutory environmental compliance and assessment, and </li>
+<li>	Strategic environmental assessment and community development plans.</li>
+
+
+								</ul>
+
+							</p>
+
+							<div class="line"></div>
+
+							<h4 id="faq-8"><strong>6.</strong> Training and complete human capital sourcing, management and evaluation </h4>
+							<p>
+							<ul>
+	<li>	Conducting general training needs in corporate management, investment advisory and project development.</li>
+	<li>	Sourcing, identifying and recruiting on request specialized skilled workers for Clients.</li>
+	<li>	Development of Human Resources operating manual.</li>
+	<li>	Conduction of staff performances review and job evaluations (inclusive of job enrichment/enlargement, 
+ Training/placement).</li>
+	<li>	Development of guide to competency policy for staff.</li>
+	<li>	Staff downsizing advisory services, and </li>
+	<li>	Staff payroll outsourced management.</li>
+	</ul>
+
+
+							</p>
+
+							<div class="line"></div>
+
+							<h4 id="faq-9"><strong>7.</strong> Tips for Increasing Your Referral Income</h4>
+							<p>
+								<ul>
+								<li>Commodity trading and financing advisory services</li>
+<li>Warehousing management for commodity import and export.</li>
+<li>Commodity collateral management (especially for non-perishable commodity imports).</li>
+<li>Advisory services for the establishment of cross-border trade finances using documentary 
+letter of credits, and 
+<li>Arrangement of appropriate financing of commodity trade.</li>
+
+
+								</ul>
+
+							</p>
+
+							<div class="line"></div>
+
+							<h4 id="faq-10"><strong>8.</strong> General finance, investments and management advisory services </h4>
+							<p>
+							<ul>
+							<li>All other advisory services related to finance, investments and general management, not mentioned under the above mentioned subject groupings. </li>
+							</ul>
+</p>
+
+							<div class="line"></div>
+
+							
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</section>
+
+		<!-- Content
+		============================================= -->
+		
+
+		<!-- Footer
+		============================================= -->
+		<footer id="footer" class="dark">
+
+			
+
+			<!-- Copyrights
+			============================================= -->
+			<div id="copyrights">
+
+				<div class="container clearfix">
+
+					<div class="col_half">
+						Copyrights &copy; 2017 All Rights Reserved Kron Finance<br>
+						<div class="copyright-links"><a href="#">Terms of Use</a> / <a href="#">Privacy Policy</a></div>
+					</div>
+
+					<div class="col_half col_last tright">
+						<div class="fright clearfix">
+							<a href="#" class="social-icon si-small si-borderless si-facebook">
+								<i class="icon-facebook"></i>
+								<i class="icon-facebook"></i>
+							</a>
+
+							<a href="#" class="social-icon si-small si-borderless si-twitter">
+								<i class="icon-twitter"></i>
+								<i class="icon-twitter"></i>
+							</a>
+
+							<a href="#" class="social-icon si-small si-borderless si-gplus">
+								<i class="icon-gplus"></i>
+								<i class="icon-gplus"></i>
+							</a>
+
+							<a href="#" class="social-icon si-small si-borderless si-pinterest">
+								<i class="icon-pinterest"></i>
+								<i class="icon-pinterest"></i>
+							</a>
+
+							<a href="#" class="social-icon si-small si-borderless si-vimeo">
+								<i class="icon-vimeo"></i>
+								<i class="icon-vimeo"></i>
+							</a>
+
+							<a href="#" class="social-icon si-small si-borderless si-github">
+								<i class="icon-github"></i>
+								<i class="icon-github"></i>
+							</a>
+
+							<a href="#" class="social-icon si-small si-borderless si-yahoo">
+								<i class="icon-yahoo"></i>
+								<i class="icon-yahoo"></i>
+							</a>
+
+							<a href="#" class="social-icon si-small si-borderless si-linkedin">
+								<i class="icon-linkedin"></i>
+								<i class="icon-linkedin"></i>
+							</a>
+						</div>
+
+						<div class="clear"></div>
+
+						<i class="icon-envelope2"></i> info@krongh.com <span class="middot">&middot;</span> <i class="icon-headphones"></i> (+233) 30 277 0666 / 20 817 8661 <span class="middot">&middot;</span> 
+					</div>
+
+				</div>
+
+			</div><!-- #copyrights end -->
+
+		</footer><!-- #footer end -->
+
+	</div><!-- #wrapper end -->
+
+	<!-- Go To Top
+	============================================= -->
+	<div id="gotoTop" class="icon-angle-up"></div>
+
+	<!-- Footer Scripts
+	============================================= -->
+	<script type="text/javascript" src="js/functions.js"></script>
+
+</body>
+</html>
